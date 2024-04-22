@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            padding-top: 50px;
+            background-color: #f8f9fa;
+            padding-bottom: 60px;
+        }
+        .navbar {
+            background-color: #4982be;
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #fff;
+        }
+        .nav-link{
+        color:red;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+        h1, h2 {
+            margin-bottom: 20px;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color:#4982be;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .div-section{
+           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .img{
+        width: 100%
+        height: auto;
+        }
+        .btn-1{
+        background-color: #4982be;
+        color: #fff;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg  fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white " href="#">Library Management System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " href="#books">Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#members">Members</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#borrows">Borrows</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#fines">Fines</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#reservations">Reservations</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container  mt-5">
+        <div class="row">
+
+<!--            <h1 class="mt-5">Welcome to the Library Management System!</h1>-->
+            <div class="col-md-12">
+                <blockquote class="blockquote text-center mb-4 mt-4">
+               <p class="mb-0">"Reading is the gateway skill that makes all other learning possible," </p>
+               <footer class="blockquote-footer">Barack Obama</footer>
+               </blockquote>
+                <div id="books" class=" p-5 div-section mb-4 ">
+                    <h2 class="mt-4">Books</h2>
+                    <div class="btn-group" role="group">
+                        <a href="{% url 'add_book' %}" class="btn btn-1">Add Book</a>
+<!--                        <a href="{% url 'edit_book' pk=1 %}" class="btn btn-secondary">Edit Book</a>-->
+                        <a href="{% url 'book_list' %}" class="btn btn-success">List Books</a>
+                    </div>
+                </div>
+                <div id="members" class=" p-5 div-section mb-4 ">
+                    <h2 class="mt-4">Members</h2>
+                    <div class="btn-group" role="group">
+                        <a href="{% url 'add_member' %}" class="btn btn-1">Add Member</a>
+<!--                        <a href="{% url 'edit_member' pk=1 %}" class="btn btn-secondary">Edit Member</a>-->
+                        <a href="{% url 'member_list' %}" class="btn btn-success">List Members</a>
+                    </div>
+                </div>
+                <div id="borrows" class=" p-5 div-section mb-4 ">
+                    <h2 class="mt-4">Borrows</h2>
+                    <div class="btn-group" role="group">
+                        <a href="{% url 'add_borrow' %}" class="btn btn-1">Add Borrow</a>
+<!--                        <a href="{% url 'edit_borrow' pk=1 %}" class="btn btn-secondary">Edit Borrow</a>-->
+                        <a href="{% url 'borrow_list' %}" class="btn btn-success">List Borrows</a>
+                    </div>
+                </div>
+                <div id="fines" class=" p-5 div-section mb-4">
+                    <h2 class="mt-4">Fines</h2>
+                    <div class="btn-group" role="group">
+                        <a href="{% url 'add_fine' %}" class="btn btn-1">Add Fine</a>
+<!--                        <a href="{% url 'edit_fine' pk=1 %}" class="btn btn-secondary">Edit Fine</a>-->
+                        <a href="{% url 'fine_list' %}" class="btn btn-success">List Fines</a>
+                    </div>
+                </div>
+                <div id="reservations" class=" p-5 div-section mb-4">
+                    <h2 class="mt-4">Reservations</h2>
+                    <div class="btn-group" role="group">
+                        <a href="{% url 'add_reservation' %}" class="btn btn-1">Add Reservation</a>
+<!--                        <a href="{% url 'edit_reservation' pk=1 %}" class="btn btn-secondary">Edit Reservation</a>-->
+                        <a href="{% url 'reservation_list' %}" class="btn btn-success">List Reservations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Library</p>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

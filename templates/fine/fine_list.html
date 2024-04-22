@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fine List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .btn-1:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            color:#fff
+        }
+        .btn-1{
+            background-color: #4982be;
+            color: #fff;
+            padding: 5px 25px 5px 25px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container">
+        <h1 class="mt-5">Fine List</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Borrow ID</th>
+                    <th>Borrower Name</th>
+
+                    <th>Fine Amount</th>
+                    <th>Paid</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fine in fines %}
+                <tr>
+                    <td>{{ fine.id }}</td>
+                    <td>{{ fine.borrow.id }}</td>
+                    <td>{{ fine.borrow.member.name }}</td>
+                    <td>{{ fine.fine_amount }}</td>
+                    <td>{{ fine.paid }}</td>
+                    <td>
+                        <a href="{% url 'edit_fine' pk=fine.pk %}" class="btn btn-sm btn-secondary">Edit Fine</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'index' %}" class="btn btn-1">Back</a>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

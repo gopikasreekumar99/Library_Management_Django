@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .btn-1:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            color:#fff
+        }
+        .btn-1{
+            background-color: #4982be;
+            color: #fff;
+            padding: 5px 25px 5px 25px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container">
+        <h1 class="mt-5">Member List</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Address</th>
+
+                    <th>Action</th>
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for member in members %}
+                <tr>
+                    <td>{{ member.id }}</td>
+                    <td>{{ member.name }}</td>
+                    <td>{{ member.email }}</td>
+                    <td>{{ member.phone_number }}</td>
+                    <td>{{ member.address }}</td>
+
+                    <td>
+                        <a href="{% url 'edit_member' pk=member.pk %}" class="btn btn-sm btn-secondary">Edit Member</a>
+                    </td>
+                    <td>
+                        <form method="POST" action="{% url 'delete_member' member.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'index' %}" class="btn btn-1">Back</a>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .btn-1:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            color:#fff
+        }
+        .btn-1{
+            background-color: #4982be;
+            color: #fff;
+            padding: 5px 25px 5px 25px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container">
+        <h1 class="mt-5">Reservation List</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Book Title</th>
+                    <th>Member Name</th>
+                    <th>Reservation Date</th>
+                    <th>Is Active</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reservation in reservations %}
+                <tr>
+                    <td>{{ reservation.id}}</td>
+                    <td>{{ reservation.book.title }}</td>
+                    <td>{{ reservation.member.name }}</td>
+                    <td>{{ reservation.reservation_date }}</td>
+                    <td>{{ reservation.is_active }}</td>
+                    <td>
+                        <a href="{% url 'edit_reservation' pk=reservation.pk %}" class="btn btn-sm btn-secondary">Edit Reservation</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'index' %}" class="btn btn-1">Back</a>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

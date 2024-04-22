@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 50px;
+        }
+        .container {
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .btn-1:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            color:#fff
+        }
+        .btn-1{
+            background-color: #4982be;
+            color: #fff;
+            padding: 5px 25px 5px 25px;
+        }
+        input{
+        width:400px;
+        }
+        label {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container  mb-3">
+
+        <div class="bg-light p-3 rounded">
+            <h2 class="mb-4 text-center ">Add Book</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id_title" >Title:</label> <br>
+                    {{ form.title }}
+                </div>
+                <div class="form-group">
+                    <label for="id_author" >Author:</label> <br>
+                    {{ form.author }}
+                </div>
+                <div class="form-group">
+                    <label for="id_isbn" >ISBN:</label> <br>
+                    {{ form.isbn }}
+                </div>
+                <div class="form-group">
+                    <label for="id_published_date" >Published Date:</label> <br>
+                    {{ form.published_date }}
+                </div>
+                <div class="form-group">
+                    <label for="id_genre">Genre:</label> <br>
+                    {{ form.genre }}
+                </div>
+                <div class="form-group">
+                    <label for="id_quantity_available">Quantity Available:</label> <br>
+                    {{ form.quantity_available }}
+                </div>
+                <div class="text-center">
+                     <button type="submit" class="btn btn-1">Add</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

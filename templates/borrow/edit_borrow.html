@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Borrow</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        h2 {
+
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        .btn-1:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            color:#fff
+        }
+        .btn-1{
+            background-color: #4982be;
+            color: #fff;
+            padding: 4px;
+        }
+        input[type='text']{
+        width:300px;
+        }
+        select{
+        width:300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Borrow</h2>
+        <form method="POST" class="bg-light">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_book">Book:</label> <br>
+                {{ form.book }}
+            </div>
+            <div class="form-group">
+                <label for="id_member">Member:</label> <br>
+                {{ form.member }}
+            </div>
+            <div class="form-group">
+                <label for="id_borrow_date">Borrow Date:</label> <br>
+                {{ form.borrow_date }}
+            </div>
+            <div class="form-group">
+                <label for="id_return_date">Return Date:</label> <br>
+                {{ form.return_date }}
+            </div>
+             <div class="form-group">
+                    <label for="id_is_returned">Is Returned:</label>
+                 {{form.is_returned}}
+            </div>
+            <div class="text-center">
+                 <button type="submit" class="btn btn-1">Update Borrow Entry</button>
+            </div>
+
+
+        </form>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
